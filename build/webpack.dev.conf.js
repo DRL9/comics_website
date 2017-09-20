@@ -12,23 +12,6 @@ Object.keys(webpackBaseConfig.entry).forEach((name) => {
 
 module.exports = merge(webpackBaseConfig, {
     devtool: 'cheap-eval-source-map',
-    resolve: {
-        alias: {
-            //使用开发环境的vue
-            vue: 'vue/dist/vue.js'
-        }
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            }
-        ]
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
     ]

@@ -12,17 +12,6 @@ module.exports = merge(webpackBaseConfig, {
         path: path.resolve('dist'),
         filename: 'scripts/[name].[chunkhash].js'
     },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                })
-            }
-        ]
-    },
     plugins: [
         //使用production环境构建，消除vue warning
         new webpack.DefinePlugin({

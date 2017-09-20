@@ -1,6 +1,7 @@
 const webpack = require('webpack')
     , path = require('path')
     , HtmlWebpackPlugin = require('html-webpack-plugin')
+    , styleConfig = require('./style.conf')
     ;
 
 module.exports = {
@@ -12,17 +13,32 @@ module.exports = {
         filename: '[name].js',
         publicPath: '/'
     },
+    resolve: {
+        alias: {
+            //使用基于 ES Module 的完整构建的版本
+            'vue$': 'vue/dist/vue.esm.js',
+        }
+    },
     module: {
         rules: [
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
-                include: [path.resolve('src')]
+                include: [path.resolve('src')],
+                options: {
+                    loaders: {
+                        'css': styleConfig.generateVueStyle()
+                    }
+                }
             },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 include: [path.resolve('src')]
+            },
+            {
+                test: /\.css$/,
+                use: styleConfig.generateCssStyle()
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,

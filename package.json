@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node build/dev-server.js",
-    "build": "webpack --config ./build/webpack.prod.conf.js --progress"
+    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.conf.js --progress"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
+    "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
