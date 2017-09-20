@@ -4,6 +4,7 @@ const express = require('express')
     , webpackDevMiddleware = require('webpack-dev-middleware')
     , webpackConfig = require('./webpack.dev.conf')
     , opn = require('opn')
+    , connectHistoryApiFallback = require('connect-history-api-fallback')
     ;
 
 const app = express();
@@ -22,6 +23,7 @@ devMiddleware.waitUntilValid(() => {
     opn(indexUri);
 })
 
+app.use(connectHistoryApiFallback());
 app.use(devMiddleware);
 
 app.use(webpackHotMiddleware(compiler, {
