@@ -15,7 +15,9 @@ export default {
                         'http://pic04.ishuhui.com/cartoon/book-1/1/878-9396/03.png?90530854']
                 });
             }
-            reject(new Error('没有该漫画'));
+            var err = new Error('没有该漫画');
+            err.code = 404;
+            reject(err);
         })
     },
     /**
