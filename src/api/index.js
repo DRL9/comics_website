@@ -11,8 +11,8 @@ export default {
             if (comicsID == 'commics1' && chaptor == 1) {
                 return resolve({
                     title: '毛皮组',
-                    imgList: ['http://pic04.ishuhui.com/cartoon/book-1/1/878-9396/03.png?90530854',
-                        'http://pic04.ishuhui.com/cartoon/book-1/1/878-9396/03.png?90530854']
+                    imgList: ['https://static.boredpanda.com/blog/wp-content/uploads/2015/07/consent-rape-comics-alli-kerkham-2.jpg',
+                        'https://phandroid.s3.amazonaws.com/wp-content/uploads/2017/03/Google-supply-shortages-s2017.03.13_nexus.png']
                 });
             }
             var err = new Error('没有该漫画');
@@ -31,7 +31,7 @@ export default {
     getComicsUrl(comicsID, chaptor, page) {
         return new Promise((resolve, reject) => {
             resolve({
-                url: 'http://pic04.ishuhui.com/cartoon/book-1/1/878-9396/03.png?90530854'
+                url: 'https://phandroid.s3.amazonaws.com/wp-content/uploads/2017/03/Google-supply-shortages-s2017.03.13_nexus.png'
             });
         });
     }
