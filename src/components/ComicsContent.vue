@@ -1,10 +1,10 @@
 <template>
     <div class="comics-content">
-        <h1>第{{chaptor}}话 {{title}}</h1>
-        <div>
+        <div class="container">
+            <h1>第{{chaptor}}话 {{title}}</h1>
             <figure v-for="(img,index) of imgList" :key="page=index+1">
                 <img :src="img" :alt="'page-'+page" />
-                <figcaption>{{page}}/{{imgList.length}}</figcaption>
+                <figcaption>{{page}} / {{imgList.length}}</figcaption>
             </figure>
         </div>
     </div>
@@ -44,3 +44,38 @@ export default {
 }
 </script>
 
+<style scoped>
+.comics-content {
+    background: #EDECEA;
+}
+
+h1 {
+    margin: 1em 0;
+    padding: .86em 0;
+    text-align: center;
+    font-family: 'yahei';
+    font-size: 1.6em;
+    border: 1px grey dashed;
+    border-style: dotted;
+    background: #fff;
+}
+
+figure {
+    margin-bottom: 1em;
+    padding: .2em 0;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 3px 3px 5px 1px #606060;
+}
+
+figure img {
+    max-width: 100%;
+}
+
+figcaption {
+    margin: .2em 0;
+    color: purple;
+    font-style: italic;
+    font-size: 1em;
+}
+</style>
