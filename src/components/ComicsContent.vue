@@ -2,9 +2,9 @@
     <div class="comics-content">
         <h1>第{{chaptor}}话 {{title}}</h1>
         <div>
-            <figure v-for="(img,index) of imgList" :key="index">
-                <img :src="img" :alt="'page-'+index" />
-                <figcaption>{{index}}/{{imgList.length}}</figcaption>
+            <figure v-for="(img,index) of imgList" :key="page=index+1">
+                <img :src="img" :alt="'page-'+page" />
+                <figcaption>{{page}}/{{imgList.length}}</figcaption>
             </figure>
         </div>
     </div>
