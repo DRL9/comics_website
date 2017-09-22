@@ -13,7 +13,7 @@ export default new VueRouter({
             path: '/', component: Main
         },
         {
-            path: '*', component: NotFound
+            path: '*', name: '404', component: NotFound
         }
     ]
 });
