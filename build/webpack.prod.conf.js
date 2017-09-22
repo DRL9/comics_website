@@ -28,18 +28,14 @@ module.exports = merge(webpackBaseConfig, {
         new ExtractTextPlugin({
             filename: 'css/[name].[contenthash].css'
         }),
+        // 提取第三方 js css
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function (module, count) {
-                // any required modules inside node_modules are extracted to vendor
-                return (
-                    module.resource &&
-                    /\.js$/.test(module.resource) &&
-                    module.resource.indexOf(
-                        path.join(__dirname, '../node_modules')
-                    ) === 0
-                )
-            }
+                return module.resource
+                    // && /\.js$/.test(module.resource)
+                    && module.resource.indexOf('node_modules') != -1
+            },
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'mainifest',
