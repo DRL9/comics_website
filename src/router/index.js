@@ -24,7 +24,7 @@ export default new VueRouter({
             component: ComicsContent
         },
         {
-            path: '*', name: '404', component: NotFound
+            path: '/notFound', alias: '*', name: '404', component: NotFound
         }
     ]
 });
