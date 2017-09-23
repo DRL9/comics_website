@@ -17,6 +17,7 @@ module.exports = {
         alias: {
             //使用基于 ES Module 的完整构建的版本
             'vue$': 'vue/dist/vue.esm.js',
+            '@': path.resolve('src')
         }
     },
     module: {

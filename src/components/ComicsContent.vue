@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import api from '../api'
-import { handleError } from '../utils'
-import { routerParamsNames } from '../router'
+import api from '@/api'
+import { handleError } from '@/utils'
+import { routerParamsNames } from '@/router'
 
 export default {
     data() {

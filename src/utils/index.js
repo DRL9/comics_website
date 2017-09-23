@@ -1,4 +1,4 @@
-import router from '../router'
+import router from '@/router'
 
 /**
  * 集中处理错误
