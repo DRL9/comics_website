@@ -8,9 +8,9 @@ export default {
      * @todo 具体实现未完成
      */
     getComicsInfo(comicsId) {
-        return new Promise((resovle, reject) => {
-            if (comicsID == 'comics1') {
-                return resovle({
+        return new Promise((resolve, reject) => {
+            if (comicsId == 'comics1') {
+                return resolve({
                     coverImg: 'http://rs.sfacg.com/web/comic/images/Logo/de61cff8-8066-46c2-82e9-b1871a8a5c38.jpg',
                     name: '海贼王',
                     intro: '冒险的漫画',
