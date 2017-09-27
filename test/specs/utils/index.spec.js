@@ -3,7 +3,7 @@ import Vue from 'vue'
 import router from '@/router/index.js'
 import { handleError } from '@/utils/index.js'
 
-describe('utils', () => {
+describe('utils/', () => {
     describe('index.js', () => {
         it('handleError(err)', (done) => {
             var error404 = new Error('');
