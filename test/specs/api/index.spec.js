@@ -64,6 +64,16 @@ describe('api/', () => {
                 });
             });
 
+            describe('.searchComics(queryConditions)', () => {
+                it('expect be resolved. and fulfilled with right object', (done) => {
+                    api.searchComics({}).then((v) => {
+                        expect(v).to.be.instanceof(Array);
+                        expect(v[0]).to.be.an('object').has.all.keys('comicsId', 'comicsName', 'coverImg');
+                        done();
+                    }).catch(done);
+                });
+            });
+
         });
     });
 
