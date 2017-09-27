@@ -49,9 +49,12 @@ export default {
      */
     getComicsUrl(comicsID, chaptor, page) {
         return new Promise((resolve, reject) => {
-            resolve({
-                url: 'https://phandroid.s3.amazonaws.com/wp-content/uploads/2017/03/Google-supply-shortages-s2017.03.13_nexus.png'
-            });
+            if (comicsID == 'comics1' && chaptor == 1 && page == 1) {
+                return resolve({
+                    url: 'https://phandroid.s3.amazonaws.com/wp-content/uploads/2017/03/Google-supply-shortages-s2017.03.13_nexus.png'
+                });
+            }
+            reject(NotFoundError.getInstance());
         });
     },
     /**
