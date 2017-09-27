@@ -52,11 +52,6 @@ export default {
 </script>
 
 <style>
-.main {
-    background-image: url('../assets/main-bg.jpg');
-    background-repeat: repeat;
-}
-
 .search {
     padding: 1em 0;
 }

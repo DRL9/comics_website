@@ -45,10 +45,6 @@ export default {
 </script>
 
 <style scoped>
-.comics-content {
-    background: #EDECEA;
-}
-
 h1 {
     margin: 1em 0;
     padding: .86em 0;

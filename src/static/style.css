@@ -1,0 +1,11 @@
+body, html, #app {
+    position: relative;
+    height: 100%;
+    background-image: url('../assets/main-bg.jpg');
+    background-repeat: repeat;
+}
+
+#app>div {
+    position: relative;
+    min-height: 100%;
+}
