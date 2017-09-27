@@ -5,6 +5,7 @@ const express = require('express')
     , webpackConfig = require('./webpack.dev.conf')
     , opn = require('opn')
     , connectHistoryApiFallback = require('connect-history-api-fallback')
+    , apiRouter = require('../server/api.js')
     ;
 
 const app = express();
@@ -21,11 +22,12 @@ const devMiddleware = webpackDevMiddleware(compiler, {
 
 devMiddleware.waitUntilValid(() => {
     opn(indexUri);
-})
+});
 
+app.use('/api', apiRouter);
 app.use(connectHistoryApiFallback());
-app.use(devMiddleware);
 
+app.use(devMiddleware);
 app.use(webpackHotMiddleware(compiler, {
     heartbeat: 5 * 1000
 }));
