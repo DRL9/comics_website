@@ -9,4 +9,5 @@ const app = express();
 app.use('/api', apiRouter);
 app.use(connectHistoryApiFallback());
 app.use(express.static(path.resolve('./dist')));
-app.listen(8020);
+
+module.exports = app.listen(8020);

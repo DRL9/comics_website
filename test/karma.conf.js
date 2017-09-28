@@ -1,4 +1,5 @@
 const webpackConfig = require('../build/webpack.test.conf.js')
+    , server = require('../server.js')
     ;
 
 module.exports = (config) => {
@@ -24,6 +25,9 @@ module.exports = (config) => {
             ]
         },
         port: 9877,
+        proxies: {
+            '/api': `http://localhost:${server.address().port}/api`
+        },
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
