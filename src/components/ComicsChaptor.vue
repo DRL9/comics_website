@@ -31,8 +31,8 @@ a {
 }
 
 a:hover {
-    color: skyblue;
-    border-color: skyblue;
+    color: orange;
+    border-color: orange;
     text-decoration: none;
 }
 </style>
