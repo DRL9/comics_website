@@ -5,9 +5,12 @@ const path = require('path')
     ;
 
 const app = express();
+const PORT = 8020;
 
 app.use('/api', apiRouter);
 app.use(connectHistoryApiFallback());
 app.use(express.static(path.resolve('./dist')));
 
-module.exports = app.listen(8020);
+module.exports = app.listen(PORT, () => {
+    console.log(`server listen ${PORT}`)
+});
