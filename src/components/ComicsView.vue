@@ -66,7 +66,6 @@ export default {
             this.coverImg = info.coverImg;
             this.name = info.name;
             this.intro = info.intro;
-            this.totalChaptor = info.totalChaptor;
             this.author = info.author;
             this.chaptorTitles = info.chaptorTitles;
         }
