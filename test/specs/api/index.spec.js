@@ -4,17 +4,17 @@ import { expect } from 'chai'
 describe('api/', () => {
     describe('index.js', () => {
         describe('default', () => {
-            const rightComicId = 'comics1',
+            const rightComicId = 'c2',
                 wrongComicId = 'wrongId',
                 rightChaptor = 1,
-                wrongChaptor = 0,
+                wrongChaptor = 1110,
                 rightPage = 1,
-                wrongPage = 0;
+                wrongPage = 111110;
 
             describe('.getComicsInfo(comicsId)', () => {
                 it('expect be resolved with right param', (done) => {
                     api.getComicsInfo(rightComicId).then((v) => {
-                        expect(v).have.all.keys('coverImg', 'name', 'intro', 'totalChaptor');
+                        expect(v).have.all.keys('coverImg', 'name', 'intro', 'totalChaptor', 'author');
                         expect(v).have.property('totalChaptor').that.is.a('number')
                         done();
                     }).catch(done)

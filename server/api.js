@@ -23,7 +23,11 @@ router.get('/filterComics', (req, res) => {
 router.get('/comicsChaptorInfo', (req, res) => {
     let comicsId = req.query['comicsId'];
     let chaptor = req.query['chaptor'];
-    res.json(comicsStore.getComicsChaptorInfo(comicsId, chaptor));
+    if (comicsStore.hasComicsChaptorInfo(comicsId, chaptor)) {
+        res.json(comicsStore.getComicsChaptorInfo(comicsId, chaptor));
+    } else {
+        res.statusCode = 404;
+    }
     res.end();
 });
 
@@ -31,7 +35,11 @@ router.get('/comicsUrl', (req, res) => {
     let comicsId = req.query['comicsId'];
     let chaptor = req.query['chaptor'];
     let page = req.query['page'];
-    res.json(comicsStore.getComicsUrl(comicsId, chaptor, page));
+    if (comicsStore.hasComicsUrl(comicsId, chaptor, page)) {
+        res.json(comicsStore.getComicsUrl(comicsId, chaptor, page));
+    } else {
+        res.statusCode = 404;
+    }
     res.end();
 })
 
