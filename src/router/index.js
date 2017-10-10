@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Main from '@/components/Main.vue'
 import NotFound from '@/components/NotFound.vue'
 import ComicsContent from '@/components/ComicsContent.vue'
-import ComicsIntro from '@/components/ComicsIntro.vue'
+import ComicsView from '@/components/ComicsView.vue'
 
 Vue.use(VueRouter);
 
@@ -21,8 +21,8 @@ export default new VueRouter({
         },
         {
             path: `/ComicsView/:${routerParamsNames.comicsId}`,
-            name: 'comicsIntro',
-            component: ComicsIntro
+            name: 'comicsView',
+            component: ComicsView
         },
         {
             path: `/ComicsView/:${routerParamsNames.comicsId}/:${routerParamsNames.chaptor}`,
