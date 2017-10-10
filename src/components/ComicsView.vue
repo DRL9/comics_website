@@ -12,28 +12,12 @@
         </div>
         <div class="intro">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-3 cover-img">
-                        <img :src="coverImg" :alt="comicsId">
-                    </div>
-                    <div class="col-sm-9">
-                        <h2>{{name}} </h2>
-                        <ul>
-                            <li>作者：{{author}}</li>
-                            <li>总章节数：{{totalChaptor}}</li>
-                            <li>简介：{{intro}}</li>
-                        </ul>
-                    </div>
-                </div>
+                <comics-info :author="author" :comics-id="comicsId" :total-chaptor="totalChaptor" :name="name" :intro="intro" :cover-img="coverImg"></comics-info>
             </div>
         </div>
         <div class="chaptors">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-3" v-for="(title,index) of chaptorTitles" :key="chaptor=index+1">
-                        <router-link :to="'/ComicsView/'+comicsId+'/'+chaptor">{{chaptor}} - {{title}}</router-link>
-                    </div>
-                </div>
+                <comics-chaptor :comics-id="comicsId" :chaptor-titles="chaptorTitles"></comics-chaptor>
             </div>
         </div>
     </div>
@@ -41,23 +25,31 @@
 
 <script>
 import SearchInput from './SearchInput.vue'
+import ComicsInfo from '@/components/ComicsInfo.vue'
+import ComicsChaptor from '@/components/ComicsChaptor.vue'
 import { routerParamsNames } from '@/router'
 import api from '@/api'
 import { handleError } from '@/utils'
 
 export default {
     components: {
-        SearchInput
+        SearchInput,
+        ComicsInfo,
+        ComicsChaptor
     },
     data() {
         return {
             comicsId: '',
             intro: '',
-            totalChaptor: 0,
             name: '',
             author: '',
             coverImg: '',
             chaptorTitles: []
+        }
+    },
+    computed: {
+        totalChaptor() {
+            return this.chaptorTitles.length;
         }
     },
     created() {
@@ -105,40 +97,5 @@ img {
 
 .intro {
     margin: 1em 0;
-}
-
-.cover-img {
-    text-align: center;
-}
-
-.intro img {
-    max-width: 100%;
-    max-height: 100%;
-    margin-bottom: 1em;
-}
-
-.intro h2 {
-    margin: 0 0 .4em;
-}
-
-.intro ul {
-    margin: 0 0 1em;
-    padding: 0;
-    list-style: none;
-    font-size: 1em;
-}
-
-.chaptors a {
-    display: block;
-    padding: .3em 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: #000;
-}
-
-.chaptors a:hover {
-    color: skyblue;
-    border-color: skyblue;
-    text-decoration: none;
 }
 </style>
