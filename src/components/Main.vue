@@ -8,8 +8,8 @@
                 漫画列表
             </h1>
             <div class="row">
-                <div class="col-sm-3">
-                    <comics-item v-for="comics of list" :key="comics.id" :id="comics.id" :cover-img="comics.coverImg" :name="comics.name">
+                <div class="col-sm-3" v-for="comics of list" :key="comics.id">
+                    <comics-item :id="comics.id" :cover-img="comics.coverImg" :name="comics.name">
                     </comics-item>
                 </div>
             </div>
@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         fetchComicsList() {
-            api.searchComics().then((list) => {
+            return api.searchComics().then((list) => {
                 list.forEach((comics) => {
                     this.list.push({
                         id: comics.comicsId,
