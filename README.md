@@ -14,3 +14,7 @@ npm run build
 ```bash
 node server.js
 ```
+## 测试
+```bash
+npm test
+```
