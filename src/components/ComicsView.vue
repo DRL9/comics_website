@@ -10,7 +10,7 @@
                 <search-input></search-input>
             </div>
         </div>
-        <div class="intro">
+        <div class="info">
             <div class="container">
                 <comics-info :author="author" :comics-id="comicsId" :total-chaptor="totalChaptor" :name="name" :intro="intro" :cover-img="coverImg"></comics-info>
             </div>
@@ -95,7 +95,20 @@ img {
     vertical-align: middle;
 }
 
-.intro {
-    margin: 1em 0;
+.info .container {
+    padding-top: 1em;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.chaptors {
+    margin-top: 1em;
+}
+
+.chaptors .container {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background: #fff;
+    border-radius: 5px;
 }
 </style>

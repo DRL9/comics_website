@@ -24,9 +24,8 @@ export default {
 <style scoped>
 a {
     display: block;
-    padding: .3em 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: .6em 1em;
+    border-bottom: 1px solid #ccc;
     color: #000;
 }
 
