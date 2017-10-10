@@ -14,8 +14,8 @@ describe('api/', () => {
             describe('.getComicsInfo(comicsId)', () => {
                 it('expect be resolved with right param', (done) => {
                     api.getComicsInfo(rightComicId).then((v) => {
-                        expect(v).have.all.keys('coverImg', 'name', 'intro', 'totalChaptor', 'author');
-                        expect(v).have.property('totalChaptor').that.is.a('number')
+                        expect(v).have.all.keys('coverImg', 'name', 'intro', 'chaptorTitles', 'author');
+                        expect(v).have.property('chaptorTitles').that.is.a('array')
                         done();
                     }).catch(done)
                 });

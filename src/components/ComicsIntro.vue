@@ -1,6 +1,11 @@
 <template>
     <div class="comics-intro">
         <div class="container">
+            <div class="home">
+                <router-link to="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </router-link>
+            </div>
             <div class="search">
                 <search-input></search-input>
             </div>
@@ -8,7 +13,7 @@
         <div class="intro">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-3 cover-img">
                         <img :src="coverImg" :alt="comicsId">
                     </div>
                     <div class="col-sm-9">
@@ -83,15 +88,32 @@ img {
     max-height: 15em;
 }
 
+.home {
+    margin: 0 1em;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30px;
+    line-height: 0;
+}
+
 .search {
+    display: inline-block;
+    width: 80%;
     margin: 1em 0;
+    vertical-align: middle;
 }
 
 .intro {
     margin: 1em 0;
 }
 
+.cover-img {
+    text-align: center;
+}
+
 .intro img {
+    max-width: 100%;
+    max-height: 100%;
     margin-bottom: 1em;
 }
 

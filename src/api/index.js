@@ -23,7 +23,7 @@ export default {
                     name: info['name'],
                     intro: info['intro'],
                     author: info['author'],
-                    totalChaptor: info['chaptorTitles'].length
+                    chaptorTitles: info['chaptorTitles']
                 })
             }, (res) => {
                 reject(NotFoundError.getInstance());
