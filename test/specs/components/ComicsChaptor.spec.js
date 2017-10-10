@@ -16,11 +16,11 @@ describe('components', () => {
         }).$mount();
 
         it(`expect ${propsData.chaptorTitles.length} <a>`, () => {
-            expect(vm.$el.querySelectorAll('a').length).to.equal(propsData.chaptorTitles.length);
+            expect(vm.$el.querySelectorAll('.list a').length).to.equal(propsData.chaptorTitles.length);
         });
 
         it('<a> is right', () => {
-            expect(vm.$el.querySelector('a').getAttribute('href')).to.equal(`/ComicsView/${propsData.comicsId}/0`);
+            expect(vm.$el.querySelector('.list a').getAttribute('href')).to.equal(`/ComicsView/${propsData.comicsId}/0`);
         });
     });
 });
