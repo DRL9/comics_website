@@ -31,7 +31,7 @@ for (let comicsInfo of comicsInfos.values()) {
     for (let chaptor = 0; chaptor < comicsInfo.chaptorTitles.length; chaptor++) {
         let imgList = [];
         for (let i = 0; i < Random.integer(10, 20); i++) {
-            imgList.push(Random.image(`${Random.integer(1100, 1300)}x${Random.integer(1400, 2000)}`, Random.color()));
+            imgList.push(Random.image(`${Random.integer(600, 1300)}x${Random.integer(500, 1700)}`, Random.color()));
         }
         comicsChaptorInfos.set(`${comicsInfo.id}-${chaptor}`, {
             title: comicsInfo.chaptorTitles[chaptor],
