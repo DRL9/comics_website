@@ -1,13 +1,15 @@
 <template>
     <div class="comics-intro">
         <div class="container">
-            <div class="home">
-                <router-link to="/">
-                    <span class="glyphicon glyphicon-home"></span>
-                </router-link>
-            </div>
-            <div class="search">
-                <search-input></search-input>
+            <div class="row search">
+                <div class="col-sm-1">
+                    <router-link to="/" class="home">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </router-link>
+                </div>
+                <div class="col-sm-11">
+                    <search-input></search-input>
+                </div>
             </div>
         </div>
         <div class="info">
@@ -79,19 +81,16 @@ img {
     max-height: 15em;
 }
 
-.home {
-    margin: 0 1em;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 30px;
-    line-height: 0;
+.search {
+    margin-top: .21em;
+    margin-bottom: .21em;
 }
 
-.search {
-    display: inline-block;
-    width: 80%;
-    margin: 1em 0;
-    vertical-align: middle;
+.home {
+    margin: auto;
+    display: block;
+    font-size: 30px;
+    text-align: center;
 }
 
 .info .container {
