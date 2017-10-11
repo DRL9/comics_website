@@ -1,7 +1,7 @@
 <template>
     <div class="comics-content">
         <div class="container">
-            <h1>第{{chaptor}}话 {{title}}</h1>
+            <h1>第{{chaptor+1}}话 {{title}}</h1>
             <figure v-for="(img,index) of imgList" :key="page=index+1">
                 <img :src="img" :alt="'page-'+page" />
                 <figcaption>{{page}} / {{imgList.length}}</figcaption>
@@ -30,7 +30,7 @@ export default {
     methods: {
         setInfo() {
             this.comicsId = this.$route.params[routerParamsNames.comicsId];
-            this.chaptor = this.$route.params[routerParamsNames.chaptor];
+            this.chaptor = this.$route.params[routerParamsNames.chaptor] - 0;
             api.getComicsChaptorInfo(this.comicsId, this.chaptor).then(
                 ({ title, imgList }) => {
                     this.title = title;
