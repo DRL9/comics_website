@@ -2,10 +2,13 @@
     <div class="comics-content">
         <div class="container">
             <h1>第{{chaptor+1}}话 {{title}}</h1>
-            <figure v-for="(img,index) of imgList" :key="page=index+1">
+            <figure v-for="(img,index) of comicsView" :key="page=index+1">
                 <img :src="img" :alt="'page-'+page" />
                 <figcaption>{{page}} / {{imgList.length}}</figcaption>
             </figure>
+            <infinite-loading @infinite='infiniteHandler' v-if="imgList.length>0" spinner="circles">
+                <span slot="no-more">最后一张</span>
+            </infinite-loading>
         </div>
     </div>
 </template>
@@ -14,14 +17,22 @@
 import api from '@/api'
 import { handleError } from '@/utils'
 import { routerParamsNames } from '@/router'
+import InfiniteLoading from 'vue-infinite-loading'
+
+//每次加载图片数量
+const IMG_COUNT_PER_LOAD = 3;
 
 export default {
+    components: {
+        InfiniteLoading
+    },
     data() {
         return {
             title: '',
             comicsId: '',
             chaptor: 0,
-            imgList: []
+            imgList: [],
+            comicsView: []
         }
     },
     created() {
@@ -39,6 +50,20 @@ export default {
                     handleError(err);
                 }
             )
+        },
+        infiniteHandler($state) {
+            if (this.comicsView.length == this.imgList.length && this.imgList.length > 0) {
+                $state.complete();
+            }
+            else {
+                let endIndex = Math.min(this.comicsView.length + IMG_COUNT_PER_LOAD, this.imgList.length);
+                for (let i = this.comicsView.length; i < endIndex; i++) {
+                    this.comicsView.push(this.imgList[i]);
+                }
+                setTimeout(function() {
+                    $state.loaded();
+                }, 1000);
+            }
         }
     }
 }
