@@ -1,5 +1,6 @@
 import { expect } from 'chai'
 import Vue from 'vue'
+import { mount } from 'vue-test-utils'
 import ComicsChaptor from '@/components/ComicsChaptor.vue'
 import router from '@/router/index.js'
 
@@ -9,18 +10,18 @@ describe('components', () => {
             chaptorTitles: ['', ''],
             comicsId: 'sdsd'
         };
-        const Constructor = Vue.extend(ComicsChaptor);
-        const vm = new Constructor({
+        const wrapper = mount(ComicsChaptor, {
             propsData,
             router
-        }).$mount();
+        });
 
         it(`expect ${propsData.chaptorTitles.length} <a>`, () => {
-            expect(vm.$el.querySelectorAll('.list a').length).to.equal(propsData.chaptorTitles.length);
+            expect(wrapper.findAll('.list a').length).to.equal(propsData.chaptorTitles.length);
         });
 
         it('<a> is right', () => {
-            expect(vm.$el.querySelector('.list a').getAttribute('href')).to.equal(`/ComicsView/${propsData.comicsId}/0`);
+            expect(wrapper.find('.list a').hasAttribute('href', `/ComicsView/${propsData.comicsId}/0`)).to.be.true;
         });
+
     });
 });
