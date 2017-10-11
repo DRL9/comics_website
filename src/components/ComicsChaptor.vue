@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row header">
             <div class="col-sm-3">
                 <h2>章节列表</h2>
             </div>
@@ -14,8 +14,17 @@
             <div class="col-sm-3">
                 <div class="btn-group btn-group-sm" role="group">
                     <button type="button" class="btn btn-default" @click="goPage(0)">1 - {{pagePerCount}}话</button>
-                    <button type="button" class="btn btn-default">...</button>
-                    <button type="button" class="btn btn-default" @click="goLastChaptor">最新{{pagePerCount}}话</button>
+                    <template v-if="chaptorTitles.length>pagePerCount">
+                        <div class="btn-group btn-group-sm">
+                            <popover trigger='hover' placement="bottom">
+                                <button type="button" class="btn btn-default btn-sm" data-role="trigger">...</button>
+                                <div slot="popover">
+                                    <chaptor-page :total-chaptor-count="chaptorTitles.length" :page-per-count="pagePerCount" @pagination='goPage'></chaptor-page>
+                                </div>
+                            </popover>
+                        </div>
+                        <button type="button" class="btn btn-default" @click="goLastChaptor">最新{{pagePerCount}}话</button>
+                    </template>
                 </div>
             </div>
         </div>
@@ -28,7 +37,14 @@
 </template>
 
 <script>
+import { Popover } from 'uiv'
+import ChaptorPage from '@/components/ChaptorPage.vue'
+
 export default {
+    components: {
+        Popover,
+        ChaptorPage
+    },
     props: {
         chaptorTitles: {
             type: Array,
@@ -103,6 +119,10 @@ export default {
 </script>
 
 <style scoped>
+.header>div {
+    margin-bottom: .3em;
+}
+
 h2 {
     margin: 0;
 }
