@@ -19,8 +19,8 @@
 
 <script>
 import api from '@/api';
-import SearchInput from './SearchInput.vue';
-import ComicsItem from './ComicsItem.vue';
+import SearchInput from '@/components/SearchInput.vue';
+import ComicsItem from '@/components/ComicsItem.vue';
 
 export default {
     components: {

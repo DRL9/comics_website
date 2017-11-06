@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-import Main from '@/components/Main.vue'
-import NotFound from '@/components/NotFound.vue'
-import ComicsContent from '@/components/ComicsContent.vue'
-import ComicsView from '@/components/ComicsView.vue'
+import Main from '@/views/Main.vue';
+import NotFound from '@/components/NotFound.vue';
+import ComicsContent from '@/views/ComicsContent.vue';
+import ComicsView from '@/views/ComicsView.vue';
 
 Vue.use(VueRouter);
 
@@ -15,9 +15,9 @@ export const routerParamsNames = {
 
 export default new VueRouter({
     mode: 'history',
-    routes: [
-        {
-            path: '/', component: Main
+    routes: [{
+            path: '/',
+            component: Main
         },
         {
             path: `/ComicsView/:${routerParamsNames.comicsId}`,
@@ -30,7 +30,10 @@ export default new VueRouter({
             component: ComicsContent
         },
         {
-            path: '/notFound', alias: '*', name: '404', component: NotFound
+            path: '/notFound',
+            alias: '*',
+            name: '404',
+            component: NotFound
         }
     ]
 });

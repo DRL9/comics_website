@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import SearchInput from './SearchInput.vue'
-import ComicsInfo from '@/components/ComicsInfo.vue'
-import ComicsChaptor from '@/components/ComicsChaptor.vue'
-import { routerParamsNames } from '@/router'
-import api from '@/api'
-import { handleError } from '@/utils'
+import SearchInput from '@/components/SearchInput.vue';
+import ComicsInfo from '@/components/ComicsInfo.vue';
+import ComicsChaptor from '@/components/ComicsChaptor.vue';
+import { routerParamsNames } from '@/router';
+import api from '@/api';
+import { handleError } from '@/utils';
 
 export default {
     components: {
@@ -47,7 +47,7 @@ export default {
             author: '',
             coverImg: '',
             chaptorTitles: []
-        }
+        };
     },
     computed: {
         totalChaptor() {
@@ -72,7 +72,7 @@ export default {
             this.chaptorTitles = info.chaptorTitles;
         }
     }
-}
+};
 </script>
 
 <style scoped>
