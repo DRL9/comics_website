@@ -77,36 +77,36 @@ export default {
 
 <style scoped>
 img {
-    max-width: 100%;
-    max-height: 15em;
+  max-width: 100%;
+  max-height: 15em;
 }
 
 .search {
-    margin-top: .21em;
-    margin-bottom: .21em;
+  margin-top: 0.21em;
+  margin-bottom: 0.21em;
 }
 
 .home {
-    margin: auto;
-    display: block;
-    font-size: 30px;
-    text-align: center;
+  margin: auto;
+  display: block;
+  font-size: 30px;
+  text-align: center;
 }
 
 .info .container {
-    padding-top: 1em;
-    background: #fff;
-    border-radius: 5px;
+  padding-top: 1em;
+  background: #fff;
+  border-radius: 5px;
 }
 
 .chaptors {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 .chaptors .container {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    background: #fff;
-    border-radius: 5px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: #fff;
+  border-radius: 5px;
 }
 </style>

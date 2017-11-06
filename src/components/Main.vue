@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import api from '@/api'
-import SearchInput from './SearchInput.vue'
-import ComicsItem from './ComicsItem.vue'
+import api from '@/api';
+import SearchInput from './SearchInput.vue';
+import ComicsItem from './ComicsItem.vue';
 
 export default {
     components: {
@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             list: []
-        }
+        };
     },
     created() {
         this.fetchComicsList();
@@ -44,15 +44,15 @@ export default {
                         name: comics.comicsName,
                         coverImg: comics.coverImg
                     });
-                })
+                });
             });
         }
     }
-}
+};
 </script>
 
 <style>
 .search {
-    padding: 1em 0;
+  padding: 1em 0;
 }
 </style>
